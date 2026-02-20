@@ -76,12 +76,12 @@ export const ImageSection = ({
             {existingImages.map((image, index) => (
               <div
                 key={`existing-${image.id}`}
-                className="relative bg-stone-600"
+                className="relative bg-stone-600 rounded-md overflow-hidden"
               >
                 <Image
                   src={image.url}
                   alt={image.alt || `Imagen existente ${index + 1}`}
-                  className="w-full h-24 rounded-md overflow-hidden object-cover"
+                  className="w-full h-24 overflow-hidden object-cover"
                 />
                 {onRemoveExistingImage && (
                   <button
@@ -101,12 +101,12 @@ export const ImageSection = ({
             {images.map((image, index) => (
               <div
                 key={`new-${URL.createObjectURL(image)}-${index}`}
-                className="relative bg-stone-600"
+                className="relative bg-stone-600 rounded-md overflow-hidden"
               >
                 <Image
                   src={URL.createObjectURL(image)}
                   alt={image.name}
-                  className="w-full h-24 rounded-md overflow-hidden object-cover"
+                  className="w-full h-24 overflow-hidden object-cover"
                 />
                 <button
                   type="button"

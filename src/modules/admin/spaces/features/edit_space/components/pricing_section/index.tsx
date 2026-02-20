@@ -54,7 +54,7 @@ export const PricingSection: React.FC<Props> = ({
           className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_auto] items-end gap-4 p-4 bg-stone-100 rounded-lg"
         >
           <div>
-            <Label>Unidad de Tiempo</Label>
+            <Label>Unidad de tiempo</Label>
             <Controller
               name={`prices.${index}.duration`}
               control={control}

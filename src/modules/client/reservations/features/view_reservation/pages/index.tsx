@@ -8,8 +8,6 @@ import {
   EmptyState,
   ErrorState,
   LoadingState,
-  PaymentButton,
-  PaymentModal,
   TicketReservation,
 } from "../components";
 import { getStatusData } from "../constants";
@@ -35,11 +33,11 @@ export default function ViewReservationPage() {
   const { reservation } = reservationData;
   const statusData = getStatusData(reservation.status);
   const price = `S/${parseFloat(reservation.price).toFixed(2)}`;
-  const calculatedAmount = parseFloat(reservation.price);
+
+  console.log(reservation);
 
   return (
     <>
-      <PaymentModal reservation={reservationData.reservation} />
       <div className="w-full max-w-4xl mx-auto px-4 py-8">
         <CustomHeader title="Ver reserva" to={ROUTES.Client.ViewReservations} />
 
@@ -51,15 +49,6 @@ export default function ViewReservationPage() {
             color={statusData.color}
           />
           <TicketReservation reservation={reservation} price={price} />
-
-          <div className="w-full flex justify-end lg:max-w-none max-w-[700px] mx-auto mt-4">
-            {reservation.status === "PENDING" && (
-              <PaymentButton
-                reservationId={id!}
-                calculatedAmount={calculatedAmount}
-              />
-            )}
-          </div>
         </div>
       </div>
     </>

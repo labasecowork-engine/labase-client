@@ -18,10 +18,6 @@ export const clientRoutes = {
       path: ROUTES.Client.ViewReservation,
       element: <client.ViewReservationPage />,
     },
-    {
-      path: ROUTES.Client.ViewPayments,
-      element: <client.ViewPaymentsPage />,
-    },
     // Profile
     {
       path: ROUTES.Client.ViewProfile,
