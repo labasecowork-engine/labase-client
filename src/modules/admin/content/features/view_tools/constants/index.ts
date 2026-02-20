@@ -5,7 +5,6 @@ import {
   Container,
   UserPlusIcon,
   BellIcon,
-  MessageCircle,
 } from "lucide-react";
 
 export const actions = [
@@ -39,11 +38,5 @@ export const actions = [
       "Con esto podras gestionar los recordatorios en la página web.",
     icon: BellIcon,
     to: ROUTES.Admin.ViewReminders,
-  },
-  {
-    title: "Mensajes",
-    description: "Con esto podras comunicarte con todo el equipo.",
-    icon: MessageCircle,
-    to: ROUTES.Admin.ViewCommunication,
   },
 ];

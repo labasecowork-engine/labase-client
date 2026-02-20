@@ -1,30 +1,15 @@
-import {
-  AsyncBoundary,
-  Card,
-  CardContent,
-  CustomHeader,
-  Pagination,
-} from "@/components/ui";
-import { useEffect, useMemo, useState } from "react";
-import { getAttendance, registerAttendance } from "../services";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { Attendance, AttendanceDay } from "../types";
-import {
-  CardButton,
-  EmptyState,
-  ErrorState,
-  LoadingState,
-  TableAttendance,
-} from "../components";
+import { CustomHeader } from "@/components/ui";
+import { useEffect } from "react";
+import { registerAttendance } from "../services";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { CardButton } from "../components";
 import { toast } from "sonner";
 import { useTitle } from "@/hooks";
-import { getDayName } from "@/utilities/";
-import { FireIcon } from "@heroicons/react/24/solid";
 
 export default function ViewReservationPage() {
   const { changeTitle } = useTitle();
   const queryClient = useQueryClient();
-  const [page, setPage] = useState(1);
+  /* const [page, setPage] = useState(1);
   const {
     data: attendance,
     isPending: isLoading,
@@ -32,7 +17,7 @@ export default function ViewReservationPage() {
   } = useQuery({
     queryKey: ["attendance", page],
     queryFn: () => getAttendance(page),
-  });
+  }); */
 
   const onSuccess = () => {
     queryClient.invalidateQueries({ queryKey: ["attendance"] });
@@ -59,7 +44,7 @@ export default function ViewReservationPage() {
     registerAttendanceMutation({ type });
   };
 
-  const attendanceHistory = useMemo(() => {
+  /* const attendanceHistory = useMemo(() => {
     if (!attendance?.attendances) return [];
 
     const groupedByDate = attendance.attendances.reduce(
@@ -85,7 +70,7 @@ export default function ViewReservationPage() {
       (a: AttendanceDay, b: AttendanceDay) =>
         new Date(b.date).getTime() - new Date(a.date).getTime()
     );
-  }, [attendance]);
+  }, [attendance]); */
 
   useEffect(() => {
     changeTitle("Asistencias - La base");
@@ -107,6 +92,7 @@ export default function ViewReservationPage() {
             type="exit"
           />
         </div>
+        {/*
         <div className="mt-8">
           <h2 className="text-xl font-serif text-stone-900 font-bold mb-6">
             Historial de asistencias
@@ -168,8 +154,9 @@ export default function ViewReservationPage() {
                 />
               </>
             )}
-          </AsyncBoundary>
+          </AsyncBoundary> 
         </div>
+          */}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import { ROUTES } from "@/routes/routes";
 import {
-  ChatBubbleBottomCenterTextIcon,
   ClipboardDocumentListIcon,
   GlobeAltIcon,
   UserGroupIcon,
@@ -100,12 +99,7 @@ export const getNavigationConfig = (userType: string): NavigationItem[] => {
         icon: UserGroupIcon,
         key: "attendance",
       },
-      {
-        name: "Mis Mensajes",
-        href: ROUTES.Employee.ViewCommunication,
-        icon: ChatBubbleBottomCenterTextIcon,
-        key: "communication",
-      },
+
       {
         name: "Sitio web",
         href: "https://www.labase.pe",
