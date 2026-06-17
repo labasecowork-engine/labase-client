@@ -89,7 +89,7 @@ export const Form = () => {
 
       <div className="text-right">
         <Link
-          to="/recover-password"
+          to={ROUTES.Auth.RecoverPassword}
           className="text-sm text-stone-600 hover:text-stone-900 hover:underline"
         >
           ¿Olvidaste tu contraseña?

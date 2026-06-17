@@ -3,7 +3,7 @@ import * as shared from "@/modules/shared";
 import { ROUTES } from "../routes";
 
 export const adminRoutes = {
-  path: "/admin",
+  path: "/administrador",
   children: [
     // Profile
     {
@@ -31,6 +31,46 @@ export const adminRoutes = {
     {
       path: ROUTES.Admin.CreateReservation,
       element: <admin.CreateReservationPage />,
+    },
+    // Plans
+    {
+      path: ROUTES.Admin.ViewPlans,
+      element: <admin.ViewPlansPage />,
+    },
+    {
+      path: ROUTES.Admin.CreatePlan,
+      element: <admin.CreatePlanPage />,
+    },
+    {
+      path: ROUTES.Admin.EditPlan,
+      element: <admin.EditPlanPage />,
+    },
+    // Contracts
+    {
+      path: ROUTES.Admin.ViewContracts,
+      element: <admin.ViewContractsPage />,
+    },
+    {
+      path: ROUTES.Admin.CreateContract,
+      element: <admin.CreateContractPage />,
+    },
+    {
+      path: ROUTES.Admin.ViewContract,
+      element: <admin.ViewContractPage />,
+    },
+    {
+      path: ROUTES.Admin.EditContract,
+      element: <admin.EditContractPage />,
+    },
+    // Clients (próximamente)
+    {
+      path: ROUTES.Admin.ViewClients,
+      element: <admin.ComingSoonPage title="Clientes" />,
+    },
+    // Website management (próximamente)
+    {
+      path: ROUTES.Admin.ManageWebsite,
+      element: <admin.ComingSoonPage title="Administrar página web" />,
     },
     // Newsletter
     {
@@ -128,6 +168,29 @@ export const adminRoutes = {
     {
       path: ROUTES.Admin.ViewTools,
       element: <admin.ViewToolsPage />,
+    },
+    // Lockers
+    {
+      path: ROUTES.Admin.ViewLockers,
+      element: <admin.ViewLockersPage />,
+    },
+    // Parking
+    {
+      path: ROUTES.Admin.ViewParking,
+      element: <admin.ViewParkingPage />,
+    },
+    {
+      path: ROUTES.Admin.CreateParking,
+      element: <admin.RegisterParkingPage />,
+    },
+    // Client attendance
+    {
+      path: ROUTES.Admin.ViewClientAttendance,
+      element: <admin.ViewClientAttendancePage />,
+    },
+    {
+      path: ROUTES.Admin.CreateClientAttendance,
+      element: <admin.RegisterClientAttendancePage />,
     },
     // Reminders
     {

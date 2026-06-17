@@ -116,7 +116,7 @@ export const VisitorForm: React.FC<Props> = ({ defaultValues }) => {
     <div className="mx-auto max-w-4xl w-full px-4 mt-8">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex items-end justify-between mb-8">
-          <CustomHeader title="Editar visitante" to="/admin/visitors" />
+          <CustomHeader title="Editar visitante" to={ROUTES.Admin.ViewVisitors} />
           <Button
             type="submit"
             disabled={isLoadingEditVisitor}

@@ -7,6 +7,11 @@ export { default as ViewReservationPage } from "./reservations/features/view_res
 export { default as ScanQRReservationsPage } from "./reservations/features/scan_qr_reservations/pages";
 export { default as CreateReservationPage } from "./reservations/features/create_reservations/pages";
 
+// Plans (catálogo de membresías)
+export { default as ViewPlansPage } from "./reservations/plans/features/view_plans/pages";
+export { default as CreatePlanPage } from "./reservations/plans/features/create_plan/pages";
+export { default as EditPlanPage } from "./reservations/plans/features/edit_plan/pages";
+
 // News
 export { default as SendNewsletterPage } from "./newsletter/features/send_newsletter/pages";
 
@@ -34,6 +39,7 @@ export { default as EditCategoryPage } from "./articles_categories/features/edit
 
 // Content
 export { default as ViewToolsPage } from "./content/features/view_tools/pages";
+export { default as ComingSoonPage } from "./content/features/coming_soon/pages";
 
 // Inventory
 export { default as ViewInventoryPage } from "./inventory/features/view_inventory/pages";
@@ -44,6 +50,23 @@ export { default as EditProductPage } from "./inventory/features/edit_product/pa
 export { default as ViewVisitorsPage } from "./visitors/features/view_visitors/pages";
 export { default as CreateVisitorPage } from "./visitors/features/create_visitor/pages";
 export { default as EditVisitorPage } from "./visitors/features/edit_visitor/pages";
+
+// Lockers
+export { default as ViewLockersPage } from "./lockers/features/view_lockers/pages";
+
+// Parking
+export { default as ViewParkingPage } from "./parking/features/view_parking/pages";
+export { default as RegisterParkingPage } from "./parking/features/register_parking/pages";
+
+// Contracts
+export { default as ViewContractsPage } from "./contracts/features/view_contracts/pages";
+export { default as CreateContractPage } from "./contracts/features/create_contract/pages";
+export { default as ViewContractPage } from "./contracts/features/view_contract/pages";
+export { default as EditContractPage } from "./contracts/features/edit_contract/pages";
+
+// Client attendance
+export { default as ViewClientAttendancePage } from "./client_attendance/features/view_client_attendance/pages";
+export { default as RegisterClientAttendancePage } from "./client_attendance/features/register_client_attendance/pages";
 
 // Reminders
 export { default as ViewRemindersPage } from "./reminders/features/view_reminders/pages";

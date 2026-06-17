@@ -3,7 +3,7 @@ import * as shared from "@/modules/shared";
 import { ROUTES } from "../routes";
 
 export const clientRoutes = {
-  path: "/client",
+  path: "/cliente",
   children: [
     // Reservations
     {

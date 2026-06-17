@@ -42,7 +42,7 @@ export const SpaceCard: React.FC<Props> = ({
   return (
     <>
       <Link
-        to={`/client/reservations/${id}`}
+        to={`/cliente/reservas/${id}`}
         key={id}
         className="overflow-hidden bg-stone-50 rounded-lg block"
       >

@@ -16,31 +16,31 @@ export const isActiveRoute = (
 
   if (
     navHref === ROUTES.Admin.ViewAllReservations &&
-    cleanCurrentPath.startsWith("/admin")
+    cleanCurrentPath.startsWith("/administrador")
   ) {
     return (
-      cleanCurrentPath === "/admin/reservations" ||
-      cleanCurrentPath.startsWith("/admin/reservations/")
+      cleanCurrentPath === ROUTES.Admin.ViewAllReservations ||
+      cleanCurrentPath.startsWith(ROUTES.Admin.ViewAllReservations + "/")
     );
   }
 
   if (
     navHref === ROUTES.Client.ViewReservations &&
-    cleanCurrentPath.startsWith("/client")
+    cleanCurrentPath.startsWith("/cliente")
   ) {
     return (
-      cleanCurrentPath === "/client/reservations" ||
-      cleanCurrentPath.startsWith("/client/reservations/")
+      cleanCurrentPath === ROUTES.Client.ViewReservations ||
+      cleanCurrentPath.startsWith(ROUTES.Client.ViewReservations + "/")
     );
   }
 
   if (
     navHref === ROUTES.Employee.RegisterAttendance &&
-    cleanCurrentPath.startsWith("/employee")
+    cleanCurrentPath.startsWith("/empleado")
   ) {
     return (
-      cleanCurrentPath === "/employee/attendance/register" ||
-      cleanCurrentPath.startsWith("/employee/attendance/register/")
+      cleanCurrentPath === ROUTES.Employee.RegisterAttendance ||
+      cleanCurrentPath.startsWith(ROUTES.Employee.RegisterAttendance + "/")
     );
   }
 

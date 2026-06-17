@@ -174,7 +174,7 @@ export const CalendarWeek = ({ events }: CalendarProps) => {
                           }}
                         >
                           <Link
-                            to={`/admin/reservations/${event.id}`}
+                            to={`/administrador/reservas/${event.id}`}
                             className={`group absolute inset-1 flex flex-col justify-between overflow-y-auto p-2 text-xs/5 bg-stone-200 text-stone-900 hover:bg-stone-300 transition-all border-l-4 border-stone-400`}
                           >
                             <div>

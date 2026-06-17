@@ -1,90 +1,118 @@
 export const ROUTES = {
   Auth: {
-    Login: "/login",
-    Register: "/register",
-    VerifyAccount: "/verify-account",
-    RecoverPassword: "/recover-password",
-    VerifyPasswordReset: "/verify-password-reset",
-    ChangePassword: "/change-password",
+    Login: "/iniciar-sesion",
+    Register: "/registro",
+    VerifyAccount: "/verificar-cuenta",
+    RecoverPassword: "/recuperar-contrasena",
+    VerifyPasswordReset: "/verificar-codigo",
+    ChangePassword: "/cambiar-contrasena",
   },
 
   Client: {
     // Profile
-    ViewProfile: "/client/profile",
+    ViewProfile: "/cliente/perfil",
     // Reservations
-    ViewReservations: "/client/reservations",
-    CreateReservation: "/client/reservations/create",
-    ViewReservation: "/client/reservations/:id",
+    ViewReservations: "/cliente/reservas",
+    CreateReservation: "/cliente/reservas/crear",
+    ViewReservation: "/cliente/reservas/:id",
   },
 
   Admin: {
     // Profile
-    ViewProfile: "/admin/profile",
+    ViewProfile: "/administrador/perfil",
 
     // Calendar
-    ViewCalendar: "/admin/calendar",
+    ViewCalendar: "/administrador/calendario",
 
     // Reservations
-    ViewAllReservations: "/admin/reservations",
-    ViewDetailsReservation: "/admin/reservations/:id",
-    ScanCodeQRReservation: "/admin/reservations/scan-qr",
-    CreateReservation: "/admin/reservations/create",
+    ViewAllReservations: "/administrador/reservas",
+    ViewDetailsReservation: "/administrador/reservas/:id",
+    ScanCodeQRReservation: "/administrador/reservas/escanear-qr",
+    CreateReservation: "/administrador/reservas/crear",
+
+    // Plans (catálogo de membresías)
+    ViewPlans: "/administrador/planes",
+    CreatePlan: "/administrador/planes/crear",
+    EditPlan: "/administrador/planes/:id/editar",
+
+    // Contracts
+    ViewContracts: "/administrador/contratos",
+    CreateContract: "/administrador/contratos/crear",
+    ViewContract: "/administrador/contratos/:id",
+    EditContract: "/administrador/contratos/:id/editar",
+
+    // Clients (próximamente)
+    ViewClients: "/administrador/clientes",
+
+    // Website management (próximamente)
+    ManageWebsite: "/administrador/pagina-web/administrar",
 
     // Newsletter
-    SendNewsletter: "/admin/newsletter",
+    SendNewsletter: "/administrador/boletin",
 
     // Spaces
-    ViewSpaces: "/admin/spaces",
-    CreateSpace: "/admin/spaces/create",
-    ViewSpace: "/admin/spaces/:id",
-    EditSpace: "/admin/spaces/:id/edit",
+    ViewSpaces: "/administrador/espacios",
+    CreateSpace: "/administrador/espacios/crear",
+    ViewSpace: "/administrador/espacios/:id",
+    EditSpace: "/administrador/espacios/:id/editar",
 
     // Employees
-    ViewEmployees: "/admin/employees",
-    CreateEmployee: "/admin/employees/create",
-    EditEmployee: "/admin/employees/:id/edit",
+    ViewEmployees: "/administrador/empleados",
+    CreateEmployee: "/administrador/empleados/crear",
+    EditEmployee: "/administrador/empleados/:id/editar",
 
     // Attendances
-    ViewAttendances: "/admin/attendances",
+    ViewAttendances: "/administrador/asistencias",
 
     // Articles
-    ViewArticles: "/admin/articles",
-    CreateArticle: "/admin/articles/create",
-    EditArticle: "/admin/articles/:id/edit",
+    ViewArticles: "/administrador/articulos",
+    CreateArticle: "/administrador/articulos/crear",
+    EditArticle: "/administrador/articulos/:id/editar",
 
     // Articles Categories
-    ViewCategoriesArticles: "/admin/articles/categories",
-    CreateCategoryArticles: "/admin/articles/categories/create",
-    EditCategoryArticles: "/admin/articles/categories/:id/edit",
+    ViewCategoriesArticles: "/administrador/articulos/categorias",
+    CreateCategoryArticles: "/administrador/articulos/categorias/crear",
+    EditCategoryArticles: "/administrador/articulos/categorias/:id/editar",
 
     // Tools
-    ViewTools: "/admin/tools",
+    ViewTools: "/administrador/herramientas",
 
     // Inventory
-    ViewInventory: "/admin/inventory",
-    CreateProduct: "/admin/inventory/create",
-    EditProduct: "/admin/inventory/:id/edit",
+    ViewInventory: "/administrador/inventario",
+    CreateProduct: "/administrador/inventario/crear",
+    EditProduct: "/administrador/inventario/:id/editar",
 
     // Visitors
-    ViewVisitors: "/admin/visitors",
-    CreateVisitor: "/admin/visitors/create",
-    EditVisitor: "/admin/visitors/edit/:id",
+    ViewVisitors: "/administrador/visitantes",
+    CreateVisitor: "/administrador/visitantes/crear",
+    EditVisitor: "/administrador/visitantes/editar/:id",
+
+    // Lockers
+    ViewLockers: "/administrador/casilleros",
+
+    // Parking
+    ViewParking: "/administrador/estacionamiento",
+    CreateParking: "/administrador/estacionamiento/crear",
+
+    // Client attendance
+    ViewClientAttendance: "/administrador/asistencia-clientes",
+    CreateClientAttendance: "/administrador/asistencia-clientes/crear",
 
     // Reminders
-    ViewReminders: "/admin/reminders",
-    CreateReminder: "/admin/reminders/create",
-    EditReminder: "/admin/reminders/:id/edit",
+    ViewReminders: "/administrador/recordatorios",
+    CreateReminder: "/administrador/recordatorios/crear",
+    EditReminder: "/administrador/recordatorios/:id/editar",
 
     // Communication
-    ViewCommunication: "/admin/communication",
+    ViewCommunication: "/administrador/comunicacion",
   },
 
   Employee: {
-    RegisterAttendance: "/employee/attendance/register",
-    ViewProfile: "/employee/profile",
+    RegisterAttendance: "/empleado/asistencia/registrar",
+    ViewProfile: "/empleado/perfil",
 
     // Communication
-    ViewCommunication: "/employee/communication",
+    ViewCommunication: "/empleado/comunicacion",
   },
 
   Error: {

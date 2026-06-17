@@ -13,7 +13,11 @@ export const appRoutes = {
       children: [
         {
           element: <layout.Sidebar />,
-          children: [clientRoutes, adminRoutes, employeeRoutes],
+          children: [clientRoutes, employeeRoutes],
+        },
+        {
+          element: <layout.AdminSidebarLayout />,
+          children: [adminRoutes],
         },
       ],
     },

@@ -10,9 +10,9 @@ export default function RoleGuard() {
 
   if (!user?.user_type) return null;
 
-  const isAdminRoute = path.startsWith("/admin");
-  const isClientRoute = path.startsWith("/client");
-  const isEmployeeRoute = path.startsWith("/employee");
+  const isAdminRoute = path.startsWith("/administrador");
+  const isClientRoute = path.startsWith("/cliente");
+  const isEmployeeRoute = path.startsWith("/empleado");
 
   const canAccess =
     (user.user_type === USER_TYPE_ADMIN && isAdminRoute) ||

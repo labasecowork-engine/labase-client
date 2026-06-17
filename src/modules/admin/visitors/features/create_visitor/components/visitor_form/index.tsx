@@ -91,7 +91,7 @@ export const VisitorForm = () => {
     <div className="mx-auto max-w-4xl w-full px-4 mt-8">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex items-end justify-between mb-8">
-          <CustomHeader title="Crear visitante" to="/admin/visitors" />
+          <CustomHeader title="Crear visitante" to={ROUTES.Admin.ViewVisitors} />
           <Button
             type="submit"
             disabled={isLoadingCreateVisitor}
