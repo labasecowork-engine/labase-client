@@ -11,7 +11,7 @@ export default function ViewToolsPage() {
   }, []);
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 mt-8">
+    <div className="w-full max-w-4xl mx-auto px-4 mt-8">
       <CustomHeader title="Herramientas" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 mt-4">

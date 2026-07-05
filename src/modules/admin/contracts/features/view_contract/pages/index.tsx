@@ -106,7 +106,7 @@ export default function ViewContractPage() {
                     <span
                       className={cn(
                         "rounded-full px-2 py-0.5 text-xs font-medium",
-                        PAYMENT_STATUS_STYLES[status].badge
+                        PAYMENT_STATUS_STYLES[status].badge,
                       )}
                     >
                       {PAYMENT_STATUS_STYLES[status].label}
@@ -133,12 +133,18 @@ export default function ViewContractPage() {
                   )}
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="icon" aria-label="Más acciones">
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        aria-label="Más acciones"
+                      >
                         <MoreVertical className="size-4" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem onClick={() => renewContract(contract.id)}>
+                      <DropdownMenuItem
+                        onClick={() => renewContract(contract.id)}
+                      >
                         <RefreshCw />
                         Renovar
                       </DropdownMenuItem>
@@ -170,8 +176,14 @@ export default function ViewContractPage() {
                   <Field label="Tipo" value={contract.contract_type} />
                   <Field label="Plan" value={contract.plan} />
                   <Field label="Espacio" value={contract.space_name} />
-                  <Field label="Inicio" value={formatDate(contract.start_date)} />
-                  <Field label="Término" value={formatDate(contract.end_date)} />
+                  <Field
+                    label="Inicio"
+                    value={formatDate(contract.start_date)}
+                  />
+                  <Field
+                    label="Término"
+                    value={formatDate(contract.end_date)}
+                  />
                   <Field
                     label="Monto renta"
                     value={formatMoney(contract.rent_amount)}
@@ -212,7 +224,7 @@ export default function ViewContractPage() {
                         "h-full rounded-full",
                         paymentProgress(contract) >= 100
                           ? "bg-emerald-500"
-                          : "bg-amber-500"
+                          : "bg-amber-500",
                       )}
                       style={{ width: `${paymentProgress(contract)}%` }}
                     />

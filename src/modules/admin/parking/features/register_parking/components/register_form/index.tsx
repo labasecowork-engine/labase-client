@@ -4,14 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useQuery } from "@tanstack/react-query";
 import {
   Button,
-  Calendar,
+  DatePicker,
   FormInput,
   FormTextarea,
   Input,
   Label,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
   Select,
   SelectContent,
   SelectItem,
@@ -20,16 +17,7 @@ import {
 } from "@/components/ui";
 import { useDebounce } from "@/hooks";
 import { cn } from "@/utilities";
-import { format } from "date-fns";
-import { es } from "date-fns/locale";
-import {
-  CalendarIcon,
-  CarFront,
-  Loader2,
-  RotateCcw,
-  SearchIcon,
-  Zap,
-} from "lucide-react";
+import { CarFront, Loader2, RotateCcw, SearchIcon, Zap } from "lucide-react";
 import { registerEntrySchema, type RegisterEntryForm } from "../../schema";
 import { searchPeople } from "../../../../services";
 import { useRegisterEntry } from "../../../../hooks";
@@ -50,13 +38,6 @@ const nowStr = (): string => {
   const d = new Date();
   return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
 };
-// "YYYY-MM-DD" → Date local (sin desfase de zona horaria).
-const parseDateStr = (value: string): Date | undefined => {
-  if (!value) return undefined;
-  const [year, month, day] = value.split("-").map(Number);
-  if (!year || !month || !day) return undefined;
-  return new Date(year, month - 1, day);
-};
 
 const buildDefaults = (spaceId?: string): RegisterEntryForm => ({
   client_name: "",
@@ -75,7 +56,6 @@ export const RegisterForm = ({
 }: Props) => {
   const [query, setQuery] = useState("");
   const [selectedPerson, setSelectedPerson] = useState<ParkingPerson | null>(null);
-  const [dateOpen, setDateOpen] = useState(false);
   const debouncedQuery = useDebounce(query, 400);
 
   const {
@@ -150,42 +130,14 @@ export const RegisterForm = ({
           {/* Fecha con Calendar de shadcn */}
           <div className="space-y-2">
             <Label htmlFor="date">Fecha</Label>
-            <Popover open={dateOpen} onOpenChange={setDateOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  id="date"
-                  type="button"
-                  className={cn(
-                    "w-full justify-start rounded-lg border border-stone-200 bg-white px-4 py-2 text-left font-normal text-stone-900 hover:bg-stone-100",
-                    !dateValue && "text-stone-500",
-                    errors.date && "border-rose-800"
-                  )}
-                >
-                  <CalendarIcon className="size-4" />
-                  {dateValue
-                    ? format(parseDateStr(dateValue)!, "PPP", { locale: es })
-                    : "Selecciona una fecha"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={parseDateStr(dateValue)}
-                  onSelect={(date) => {
-                    if (date)
-                      setValue(
-                        "date",
-                        `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(
-                          date.getDate()
-                        )}`,
-                        { shouldValidate: true }
-                      );
-                    setDateOpen(false);
-                  }}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
+            <DatePicker
+              id="date"
+              value={dateValue}
+              onChange={(value) =>
+                setValue("date", value, { shouldValidate: true })
+              }
+              error={!!errors.date}
+            />
             {errors.date && (
               <p className="text-sm text-rose-800">{errors.date.message}</p>
             )}
@@ -262,7 +214,7 @@ export const RegisterForm = ({
                 id="space-select"
                 className={cn("w-full", errors.space_id && "border-rose-800")}
               >
-                <SelectValue placeholder="— Seleccionar —" />
+                <SelectValue placeholder="Seleccionar espacio" />
               </SelectTrigger>
               <SelectContent>
                 {freeSpaces.map((space) => (

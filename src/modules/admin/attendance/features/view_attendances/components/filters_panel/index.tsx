@@ -55,17 +55,8 @@ export const FiltersPanel = ({
         </Button>
       </CardHeader>
       <CardContent>
-        <div className="flex items-center gap-2 w-full">
-          <div className="w-full">
-            <Label className="mb-2 block">Buscador</Label>
-            <Input
-              placeholder="Buscar empleado..."
-              className="w-full"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-          <div className="w-[250px]">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end">
+          <div className="w-full sm:w-[250px]">
             <AsyncSelect
               label="Empresa"
               placeholder="Selecciona una empresa"
@@ -73,13 +64,13 @@ export const FiltersPanel = ({
               isLoading={isPendingCompanies}
               isError={isErrorCompanies}
               value={companyId}
-              className="w-[250px]"
+              className="w-full sm:w-[250px]"
               onChange={(value) => {
                 setCompanyId(value);
               }}
             />
           </div>
-          <div className="w-[250px]">
+          <div className="w-full sm:w-[250px]">
             <AsyncSelect
               label="Área"
               placeholder="Selecciona un área"
@@ -87,12 +78,21 @@ export const FiltersPanel = ({
               isLoading={isPendingAreas}
               isError={isErrorAreas}
               value={workAreaId}
-              className="w-[250px]"
+              className="w-full sm:w-[250px]"
               onChange={(value) => {
                 setWorkAreaId(value);
               }}
             />
           </div>
+        </div>
+        <div className="mt-4 w-full">
+          <Label className="mb-2 block">Buscador</Label>
+          <Input
+            placeholder="Buscar empleado..."
+            className="w-full"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
       </CardContent>
     </Card>

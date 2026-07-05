@@ -24,7 +24,7 @@ export const getSpaces = async (): Promise<ParkingSpace[]> => {
 };
 
 export const getRecords = async (
-  filters: RecordFilters = {}
+  filters: RecordFilters = {},
 ): Promise<ParkingRecordsResponse> => {
   const params = new URLSearchParams();
   if (filters.search) params.append("search", filters.search);
@@ -34,7 +34,7 @@ export const getRecords = async (
   params.append("page", String(filters.page ?? 1));
 
   const { data } = await axiosInstance.get<Response<ParkingRecordsResponse>>(
-    `/parking/records?${params.toString()}`
+    `/parking/records?${params.toString()}`,
   );
   return unwrap(data, "No se pudieron obtener los registros");
 };
@@ -44,35 +44,35 @@ export const searchPeople = async (query: string): Promise<ParkingPerson[]> => {
   if (!term) return [];
   const params = new URLSearchParams({ search: term });
   const { data } = await axiosInstance.get<Response<ParkingPerson[]>>(
-    `/parking/people?${params.toString()}`
+    `/parking/people?${params.toString()}`,
   );
   return unwrap(data, "No se pudieron buscar personas");
 };
 
 export const registerEntry = async (
-  input: RegisterEntryInput
+  input: RegisterEntryInput,
 ): Promise<ParkingRecord> => {
   const { data } = await axiosInstance.post<Response<ParkingRecord>>(
     "/parking/records",
-    input
+    input,
   );
   return unwrap(data, "No se pudo registrar el ingreso");
 };
 
 export const registerExit = async (
   id: string,
-  input: RegisterExitInput
+  input: RegisterExitInput,
 ): Promise<ParkingRecord> => {
   const { data } = await axiosInstance.patch<Response<ParkingRecord>>(
     `/parking/records/${id}/exit`,
-    input
+    input,
   );
   return unwrap(data, "No se pudo registrar la salida");
 };
 
 export const reenter = async (id: string): Promise<ParkingRecord> => {
   const { data } = await axiosInstance.patch<Response<ParkingRecord>>(
-    `/parking/records/${id}/reenter`
+    `/parking/records/${id}/reenter`,
   );
   return unwrap(data, "No se pudo registrar el reingreso");
 };

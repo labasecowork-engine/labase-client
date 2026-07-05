@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AsyncBoundary, Button, DeleteDialog, Pagination } from "@/components/ui";
+import {
+  AsyncBoundary,
+  Button,
+  DeleteDialog,
+  Pagination,
+} from "@/components/ui";
 import { Plus } from "lucide-react";
 import { useDebounce, useTitle } from "@/hooks";
 import { ROUTES } from "@/routes/routes";
@@ -56,15 +61,12 @@ export default function ViewPlansPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10">
+    <div className="mx-auto w-full max-w-4xl px-4 py-10">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="font-serif text-2xl font-bold text-stone-900 sm:text-3xl">
-            Gestión de Planes
+            Planes
           </h1>
-          <p className="text-sm text-stone-500">
-            Crea y administra los planes disponibles para tus clientes.
-          </p>
         </div>
         <Link to={ROUTES.Admin.CreatePlan}>
           <Button>
@@ -74,8 +76,11 @@ export default function ViewPlansPage() {
         </Link>
       </div>
 
-      <div className="space-y-6">
-        <PlanStatsCards stats={statsQuery.data} isLoading={statsQuery.isLoading} />
+      <div className="space-y-4">
+        <PlanStatsCards
+          stats={statsQuery.data}
+          isLoading={statsQuery.isLoading}
+        />
 
         <div>
           <FiltersBar

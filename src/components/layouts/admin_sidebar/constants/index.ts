@@ -58,8 +58,6 @@ export const ADMIN_NAV: AdminNavGroup[] = [
     items: [
       { name: "Enlace", href: "https://www.labase.pe", external: true },
       { name: "Administrar", href: "https://cms.labase.pe", external: true },
-      { name: "Artículos", href: ROUTES.Admin.ViewArticles },
-      { name: "Newsletter", href: ROUTES.Admin.SendNewsletter },
     ],
   },
 ];

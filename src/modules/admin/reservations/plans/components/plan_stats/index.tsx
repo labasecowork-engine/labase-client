@@ -9,10 +9,14 @@ interface StatItem {
 
 const ITEMS: StatItem[] = [
   { key: "total", label: "Total planes", accent: "text-stone-900" },
-  { key: "individual", label: "Individual", accent: "text-indigo-700" },
-  { key: "team", label: "Equipos", accent: "text-cyan-700" },
-  { key: "office", label: "Oficinas", accent: "text-fuchsia-700" },
-  { key: "shared_space", label: "Espacios compartidos", accent: "text-teal-700" },
+  { key: "individual", label: "Individual", accent: "text-stone-900" },
+  { key: "team", label: "Equipos", accent: "text-stone-900" },
+  { key: "office", label: "Oficinas", accent: "text-stone-900" },
+  {
+    key: "shared_space",
+    label: "Compartidos",
+    accent: "text-stone-900",
+  },
 ];
 
 interface Props {

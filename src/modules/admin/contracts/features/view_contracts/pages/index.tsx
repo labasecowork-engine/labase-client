@@ -65,15 +65,12 @@ export default function ViewContractsPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10">
+    <div className="mx-auto w-full max-w-4xl px-4 py-10">
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="font-serif text-2xl font-bold text-stone-900 sm:text-3xl">
-            Gestión de Contratos
+            Contratos
           </h1>
-          <p className="text-sm text-stone-500">
-            Crea, edita y gestiona contratos de alquiler de espacios.
-          </p>
         </div>
         <Link to={ROUTES.Admin.CreateContract}>
           <Button>
@@ -83,7 +80,7 @@ export default function ViewContractsPage() {
         </Link>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <ExpiryBanner stats={statsQuery.data} />
 
         <div>
@@ -123,7 +120,11 @@ export default function ViewContractsPage() {
         </div>
       </div>
 
-      <PayDialog open={payOpen} onOpenChange={setPayOpen} contract={payTarget} />
+      <PayDialog
+        open={payOpen}
+        onOpenChange={setPayOpen}
+        contract={payTarget}
+      />
       <DeleteDialog
         isOpen={deleteOpen}
         onClose={() => setDeleteOpen(false)}

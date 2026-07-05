@@ -12,9 +12,6 @@ export { default as ViewPlansPage } from "./reservations/plans/features/view_pla
 export { default as CreatePlanPage } from "./reservations/plans/features/create_plan/pages";
 export { default as EditPlanPage } from "./reservations/plans/features/edit_plan/pages";
 
-// News
-export { default as SendNewsletterPage } from "./newsletter/features/send_newsletter/pages";
-
 // Spaces
 export { default as ViewSpacesPage } from "./spaces/features/view_spaces/pages";
 export { default as CreateSpacePage } from "./spaces/features/create_space/pages";
@@ -26,16 +23,6 @@ export { default as ViewEmployeesPage } from "./employee/features/view_employees
 export { default as ViewAttendancesPage } from "./attendance/features/view_attendances/pages";
 export { default as CreateEmployeePage } from "./employee/features/create_employee/pages";
 export { default as EditEmployeePage } from "./employee/features/edit_employee/pages";
-
-// Articles
-export { default as ViewArticlesPage } from "./articles/features/view_articles/pages";
-export { default as CreateArticlePage } from "./articles/features/create_article/pages";
-export { default as EditArticlePage } from "./articles/features/edit_article/pages";
-
-// Articles Categories
-export { default as ViewCategoriesPage } from "./articles_categories/features/view_categories/pages";
-export { default as CreateCategoryPage } from "./articles_categories/features/create_category/pages";
-export { default as EditCategoryPage } from "./articles_categories/features/edit_category/pages";
 
 // Content
 export { default as ViewToolsPage } from "./content/features/view_tools/pages";

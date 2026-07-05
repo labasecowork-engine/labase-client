@@ -47,9 +47,6 @@ export const ROUTES = {
     // Website management (próximamente)
     ManageWebsite: "/administrador/pagina-web/administrar",
 
-    // Newsletter
-    SendNewsletter: "/administrador/boletin",
-
     // Spaces
     ViewSpaces: "/administrador/espacios",
     CreateSpace: "/administrador/espacios/crear",
@@ -63,16 +60,6 @@ export const ROUTES = {
 
     // Attendances
     ViewAttendances: "/administrador/asistencias",
-
-    // Articles
-    ViewArticles: "/administrador/articulos",
-    CreateArticle: "/administrador/articulos/crear",
-    EditArticle: "/administrador/articulos/:id/editar",
-
-    // Articles Categories
-    ViewCategoriesArticles: "/administrador/articulos/categorias",
-    CreateCategoryArticles: "/administrador/articulos/categorias/crear",
-    EditCategoryArticles: "/administrador/articulos/categorias/:id/editar",
 
     // Tools
     ViewTools: "/administrador/herramientas",

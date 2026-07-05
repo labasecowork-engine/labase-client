@@ -9,7 +9,7 @@ export const TableLoading = () => (
 );
 
 export const TableError = () => (
-  <div className="py-8">
+  <div>
     <StatusMessage
       title="No se pudo cargar la información"
       description="Ocurrió un problema al obtener los datos. Intenta nuevamente en unos segundos."
@@ -25,7 +25,7 @@ interface EmptyProps {
 }
 
 export const TableEmpty = ({ title, description }: EmptyProps) => (
-  <div className="py-8">
+  <div>
     <StatusMessage
       title={title}
       description={description}

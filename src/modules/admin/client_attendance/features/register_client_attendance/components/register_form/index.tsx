@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useQuery } from "@tanstack/react-query";
 import {
   Button,
+  DatePicker,
   FormInput,
   FormTextarea,
   Input,
@@ -51,6 +52,7 @@ export const RegisterForm = () => {
     handleSubmit,
     reset,
     setValue,
+    watch,
     formState: { errors },
   } = useForm<RegisterAttendanceForm>({
     resolver: zodResolver(registerAttendanceSchema),
@@ -169,13 +171,20 @@ export const RegisterForm = () => {
             errors={errors}
             placeholder="Empresa"
           />
-          <FormInput
-            label="Fecha"
-            name="date"
-            type="date"
-            register={register}
-            errors={errors}
-          />
+          <div className="space-y-2">
+            <Label htmlFor="date">Fecha</Label>
+            <DatePicker
+              id="date"
+              value={watch("date")}
+              onChange={(value) =>
+                setValue("date", value, { shouldValidate: true })
+              }
+              error={!!errors.date}
+            />
+            {errors.date && (
+              <p className="text-sm text-rose-800">{errors.date.message}</p>
+            )}
+          </div>
 
           {/* Hora de ingreso + EN VIVO */}
           <div className="space-y-2">

@@ -6,6 +6,7 @@ export * from "./skeleton";
 export * from "./button";
 export * from "./calendar";
 export * from "./card";
+export * from "./date_picker";
 export * from "./context_menu";
 export * from "./custom_header";
 export * from "./dropdown_menu";

@@ -61,7 +61,7 @@ export default function ViewEmployeesPage() {
   }, [changeTitle]);
 
   return (
-    <div className="mx-auto max-w-5xl w-full px-4 mt-8">
+    <div className="mx-auto max-w-4xl w-full px-4 mt-8">
       <div className="flex justify-between items-center">
         <CustomHeader title="Empleados" />
         <div className="flex items-center gap-2">

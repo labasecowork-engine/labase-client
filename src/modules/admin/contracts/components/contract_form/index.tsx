@@ -2,6 +2,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  DatePicker,
   FormInput,
   Input,
   Label,
@@ -74,12 +80,6 @@ const buildDefaults = (contract?: Contract | null): ContractFormValues =>
         num_users: "",
       };
 
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="mb-3 text-xs font-semibold uppercase tracking-wide text-stone-500">
-    {children}
-  </h3>
-);
-
 export const ContractForm = ({
   planSuggestions,
   initialContract,
@@ -136,190 +136,241 @@ export const ContractForm = ({
 
   const followUp = watch("follow_up");
   const contractType = watch("contract_type");
+  const rentReferenceStart = watch("rent_reference_start");
+  const startDate = watch("start_date");
+  const endDate = watch("end_date");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {/* Datos del cliente */}
-      <section className="rounded-lg bg-stone-50 p-5">
-        <SectionTitle>Datos del cliente</SectionTitle>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <FormInput
-            label="Cliente / Empresa"
-            name="client_name"
-            register={register}
-            errors={errors}
-            placeholder="Nombre del cliente o empresa"
-          />
-          <FormInput
-            label="Responsable"
-            name="responsible"
-            register={register}
-            errors={errors}
-            placeholder="Nombre del responsable"
-          />
-          <FormInput
-            label="DNI o RUC"
-            name="document"
-            register={register}
-            errors={errors}
-            placeholder="DNI (8) o RUC (11)"
-          />
-          <FormInput
-            label="Celular"
-            name="phone"
-            register={register}
-            errors={errors}
-            placeholder="9 dígitos"
-          />
-          <FormInput
-            label="Dirección"
-            name="address"
-            register={register}
-            errors={errors}
-            placeholder="Dirección completa"
-          />
-          <div className="space-y-2">
-            <Label htmlFor="follow_up">Seguimiento</Label>
-            <Select
-              value={followUp || undefined}
-              onValueChange={(value) => setValue("follow_up", value)}
-            >
-              <SelectTrigger id="follow_up" className="w-full">
-                <SelectValue placeholder="— Seleccionar —" />
-              </SelectTrigger>
-              <SelectContent>
-                {FOLLOW_UP_OPTIONS.map((option) => (
-                  <SelectItem key={option} value={option}>
-                    {option}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+      <Card>
+        <CardHeader>
+          <CardTitle>Datos del cliente</CardTitle>
+          <CardDescription>
+            Información de contacto del cliente o empresa.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <FormInput
+              label="Cliente / Empresa"
+              name="client_name"
+              register={register}
+              errors={errors}
+              placeholder="Nombre del cliente o empresa"
+            />
+            <FormInput
+              label="Responsable"
+              name="responsible"
+              register={register}
+              errors={errors}
+              placeholder="Nombre del responsable"
+            />
+            <FormInput
+              label="DNI o RUC"
+              name="document"
+              register={register}
+              errors={errors}
+              placeholder="DNI (8) o RUC (11)"
+            />
+            <FormInput
+              label="Celular"
+              name="phone"
+              register={register}
+              errors={errors}
+              placeholder="9 dígitos"
+            />
+            <FormInput
+              label="Dirección"
+              name="address"
+              register={register}
+              errors={errors}
+              placeholder="Dirección completa"
+            />
+            <div className="space-y-2">
+              <Label htmlFor="follow_up">Seguimiento</Label>
+              <Select
+                value={followUp || undefined}
+                onValueChange={(value) => setValue("follow_up", value)}
+              >
+                <SelectTrigger id="follow_up" className="w-full">
+                  <SelectValue placeholder="Seleccionar seguimiento" />
+                </SelectTrigger>
+                <SelectContent>
+                  {FOLLOW_UP_OPTIONS.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
-        </div>
-      </section>
+        </CardContent>
+      </Card>
 
       {/* Datos del contrato */}
-      <section className="rounded-lg bg-stone-50 p-5">
-        <SectionTitle>Datos del contrato</SectionTitle>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {/* Plan con autocomplete */}
-          <div className="space-y-2">
-            <Label htmlFor="plan">Plan</Label>
-            <Input
-              id="plan"
-              list="contract-plan-options"
-              {...register("plan")}
-              placeholder="Ej: Mensual Flexible, Premium…"
-            />
-            <datalist id="contract-plan-options">
-              {planSuggestions.map((plan) => (
-                <option key={plan} value={plan} />
-              ))}
-            </datalist>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="contract_type">Tipo de contrato</Label>
-            <Select
-              value={contractType || undefined}
-              onValueChange={(value) => setValue("contract_type", value)}
-            >
-              <SelectTrigger id="contract_type" className="w-full">
-                <SelectValue placeholder="— Seleccionar —" />
-              </SelectTrigger>
-              <SelectContent>
-                {CONTRACT_TYPE_OPTIONS.map((option) => (
-                  <SelectItem key={option} value={option}>
-                    {option}
-                  </SelectItem>
+      <Card>
+        <CardHeader>
+          <CardTitle>Datos del contrato</CardTitle>
+          <CardDescription>
+            Plan, fechas y condiciones económicas del contrato.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {/* Plan con autocomplete */}
+            <div className="space-y-2">
+              <Label htmlFor="plan">Plan</Label>
+              <Input
+                id="plan"
+                list="contract-plan-options"
+                {...register("plan")}
+                placeholder="Ej: Mensual Flexible, Premium…"
+              />
+              <datalist id="contract-plan-options">
+                {planSuggestions.map((plan) => (
+                  <option key={plan} value={plan} />
                 ))}
-              </SelectContent>
-            </Select>
-          </div>
+              </datalist>
+            </div>
 
-          <FormInput
-            label="Inicio de referencia de renta"
-            name="rent_reference_start"
-            type="date"
-            register={register}
-            errors={errors}
-          />
-          <FormInput
-            label="Inicio del contrato"
-            name="start_date"
-            type="date"
-            register={register}
-            errors={errors}
-          />
-          <FormInput
-            label="Término del contrato"
-            name="end_date"
-            type="date"
-            register={register}
-            errors={errors}
-          />
-          <FormInput
-            label="Monto de la renta (S/.)"
-            name="rent_amount"
-            type="number"
-            register={register}
-            errors={errors}
-            placeholder="0.00"
-          />
-          <FormInput
-            label="Pago mensual (S/.)"
-            name="monthly_payment"
-            type="number"
-            register={register}
-            errors={errors}
-            placeholder="0.00"
-          />
-          <FormInput
-            label="Empresa (badge)"
-            name="company"
-            register={register}
-            errors={errors}
-            placeholder="Vacío = Persona Natural"
-          />
-          <FormInput
-            label="N° de factura"
-            name="invoice_number"
-            register={register}
-            errors={errors}
-            placeholder="Número de factura"
-          />
-          <FormInput
-            label="WiFi"
-            name="wifi"
-            register={register}
-            errors={errors}
-            placeholder="Nombre de red WiFi"
-          />
-          <FormInput
-            label="Locker asignado"
-            name="locker_ref"
-            register={register}
-            errors={errors}
-            placeholder="Ej: L-01"
-          />
-          <FormInput
-            label="Número de usuarios"
-            name="num_users"
-            type="number"
-            register={register}
-            errors={errors}
-            placeholder="Ej: 3"
-          />
-          <FormInput
-            label="Espacio"
-            name="space_name"
-            register={register}
-            errors={errors}
-            placeholder="Ej: Base Operativa"
-          />
-        </div>
-      </section>
+            <div className="space-y-2">
+              <Label htmlFor="contract_type">Tipo de contrato</Label>
+              <Select
+                value={contractType || undefined}
+                onValueChange={(value) => setValue("contract_type", value)}
+              >
+                <SelectTrigger id="contract_type" className="w-full">
+                  <SelectValue placeholder="Seleccionar tipo" />
+                </SelectTrigger>
+                <SelectContent>
+                  {CONTRACT_TYPE_OPTIONS.map((option) => (
+                    <SelectItem key={option} value={option}>
+                      {option}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="rent_reference_start">
+                Inicio de referencia de renta
+              </Label>
+              <DatePicker
+                id="rent_reference_start"
+                value={rentReferenceStart}
+                onChange={(value) =>
+                  setValue("rent_reference_start", value, {
+                    shouldValidate: true,
+                  })
+                }
+                error={!!errors.rent_reference_start}
+              />
+              {errors.rent_reference_start && (
+                <p className="text-sm text-rose-800">
+                  {errors.rent_reference_start.message}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="start_date">Inicio del contrato</Label>
+              <DatePicker
+                id="start_date"
+                value={startDate}
+                onChange={(value) =>
+                  setValue("start_date", value, { shouldValidate: true })
+                }
+                error={!!errors.start_date}
+              />
+              {errors.start_date && (
+                <p className="text-sm text-rose-800">
+                  {errors.start_date.message}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="end_date">Término del contrato</Label>
+              <DatePicker
+                id="end_date"
+                value={endDate}
+                onChange={(value) =>
+                  setValue("end_date", value, { shouldValidate: true })
+                }
+                error={!!errors.end_date}
+              />
+              {errors.end_date && (
+                <p className="text-sm text-rose-800">
+                  {errors.end_date.message}
+                </p>
+              )}
+            </div>
+
+            <FormInput
+              label="Monto de la renta (S/.)"
+              name="rent_amount"
+              type="number"
+              register={register}
+              errors={errors}
+              placeholder="0.00"
+            />
+            <FormInput
+              label="Pago mensual (S/.)"
+              name="monthly_payment"
+              type="number"
+              register={register}
+              errors={errors}
+              placeholder="0.00"
+            />
+            <FormInput
+              label="Empresa (badge)"
+              name="company"
+              register={register}
+              errors={errors}
+              placeholder="Vacío = Persona Natural"
+            />
+            <FormInput
+              label="N° de factura"
+              name="invoice_number"
+              register={register}
+              errors={errors}
+              placeholder="Número de factura"
+            />
+            <FormInput
+              label="WiFi"
+              name="wifi"
+              register={register}
+              errors={errors}
+              placeholder="Nombre de red WiFi"
+            />
+            <FormInput
+              label="Locker asignado"
+              name="locker_ref"
+              register={register}
+              errors={errors}
+              placeholder="Ej: L-01"
+            />
+            <FormInput
+              label="Número de usuarios"
+              name="num_users"
+              type="number"
+              register={register}
+              errors={errors}
+              placeholder="Ej: 3"
+            />
+            <FormInput
+              label="Espacio"
+              name="space_name"
+              register={register}
+              errors={errors}
+              placeholder="Ej: Base Operativa"
+            />
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="flex flex-col gap-2 sm:flex-row">
         <Button type="submit" disabled={isPending} className="sm:flex-1">

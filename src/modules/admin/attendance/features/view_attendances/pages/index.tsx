@@ -3,7 +3,6 @@ import React from "react";
 import { useTitle } from "@/hooks";
 import { useEffect, useMemo, useState } from "react";
 import { getAttendance, statsAttendance } from "../services";
-import { ROUTES } from "@/routes/routes";
 import { useQuery } from "@tanstack/react-query";
 import { transformAttendanceData } from "../utils";
 import {
@@ -62,7 +61,7 @@ export default function ViewAttendancesPage() {
 
   const employeeAttendance = useMemo(
     () => transformAttendanceData(attendance || { attendances: [] }),
-    [attendance]
+    [attendance],
   );
 
   useEffect(() => {
@@ -73,7 +72,7 @@ export default function ViewAttendancesPage() {
     <>
       <div className="mx-auto max-w-5xl w-full px-4 mt-8">
         <div className=" flex items-center justify-between mb-8">
-          <CustomHeader title="Asistencia" to={ROUTES.Admin.ViewEmployees} />
+          <CustomHeader title="Asistencia" />
         </div>
 
         <AsyncBoundary

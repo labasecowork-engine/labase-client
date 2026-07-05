@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { AsyncBoundary } from "@/components/ui";
-import { ArrowLeft } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import { AsyncBoundary, CustomHeader } from "@/components/ui";
 import { useTitle } from "@/hooks";
 import { ROUTES } from "@/routes/routes";
 import {
@@ -27,16 +26,11 @@ export default function EditContractPage() {
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-10">
-      <Link
+      <CustomHeader
+        title="Nuevo contrato"
+        classNameTitle="mb-4"
         to={ROUTES.Admin.ViewContract.replace(":id", id)}
-        className="mb-4 inline-flex items-center gap-1 text-sm text-stone-500 transition-colors hover:text-stone-800"
-      >
-        <ArrowLeft className="size-4" />
-        Detalle del contrato
-      </Link>
-      <h1 className="mb-6 font-serif text-2xl font-bold text-stone-900 sm:text-3xl">
-        Editar contrato
-      </h1>
+      />
 
       <AsyncBoundary
         isLoading={contractQuery.isLoading}

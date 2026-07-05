@@ -72,11 +72,6 @@ export const adminRoutes = {
       path: ROUTES.Admin.ManageWebsite,
       element: <admin.ComingSoonPage title="Administrar página web" />,
     },
-    // Newsletter
-    {
-      path: ROUTES.Admin.SendNewsletter,
-      element: <admin.SendNewsletterPage />,
-    },
     // Spaces
     {
       path: ROUTES.Admin.ViewSpaces,
@@ -111,32 +106,6 @@ export const adminRoutes = {
     {
       path: ROUTES.Admin.ViewAttendances,
       element: <admin.ViewAttendancesPage />,
-    },
-    // Articles
-    {
-      path: ROUTES.Admin.ViewArticles,
-      element: <admin.ViewArticlesPage />,
-    },
-    {
-      path: ROUTES.Admin.CreateArticle,
-      element: <admin.CreateArticlePage />,
-    },
-    {
-      path: ROUTES.Admin.EditArticle,
-      element: <admin.EditArticlePage />,
-    },
-    // Categories
-    {
-      path: ROUTES.Admin.ViewCategoriesArticles,
-      element: <admin.ViewCategoriesPage />,
-    },
-    {
-      path: ROUTES.Admin.CreateCategoryArticles,
-      element: <admin.CreateCategoryPage />,
-    },
-    {
-      path: ROUTES.Admin.EditCategoryArticles,
-      element: <admin.EditCategoryPage />,
     },
     // Visitors
     {

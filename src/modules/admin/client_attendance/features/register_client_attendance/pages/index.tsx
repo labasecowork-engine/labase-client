@@ -23,7 +23,7 @@ export default function RegisterClientAttendancePage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10">
+    <div className="mx-auto w-full max-w-4xl px-4 py-10">
       <div className="mb-6">
         <CustomHeader
           to={ROUTES.Admin.ViewClientAttendance}
@@ -43,7 +43,11 @@ export default function RegisterClientAttendancePage() {
         />
       </div>
 
-      <ExitDialog open={exitOpen} onOpenChange={setExitOpen} target={exitTarget} />
+      <ExitDialog
+        open={exitOpen}
+        onOpenChange={setExitOpen}
+        target={exitTarget}
+      />
     </div>
   );
 }
